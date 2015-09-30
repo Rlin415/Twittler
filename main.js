@@ -56,7 +56,6 @@ $(document).ready(function(){
     $allTweets.show();
   });
 
-/*
 // Check for new tweets on a random schedule
   var checkTweet = function() {
     for (var i = originNumbOfTweets; i < streams.home.length; i++) {
@@ -75,5 +74,5 @@ $(document).ready(function(){
     setTimeout(scheduleNextCheck, Math.random() * 60000);
   };
   scheduleNextCheck();
-*/
+
 });
