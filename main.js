@@ -12,7 +12,7 @@ $(document).ready(function(){
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $("<h2 class='tweets'><span class='userName'>@" +
-      tweet.user + "</span>: " + tweet.message + "</h2>");
+      tweet.user + "</span>: </h2><h3 class='tweetMsg'>" + tweet.message + "</h3>");
     var $timeStamp = $("<h3 class='timeStamp'></h3>")
     $timeStamp.text(tweet.created_at);
     $timeStamp.appendTo($allTweets);
@@ -38,7 +38,7 @@ $(document).ready(function(){
     streams.users[currUser].forEach(function(usrData) {
       var $usrTweets = $("<h2 class='usrTweets'></h2>");
       var $usrTimestamp = $("<h3 class='usrTimestamp'></h3>")
-      $usrTweets.text('#' + usrData.message);
+      $usrTweets.text(usrData.message);
       $usrTimestamp.text(usrData.created_at);
       $usrTimestamp.appendTo($usrTimeline);
       $usrTweets.appendTo($usrTimeline);
@@ -46,22 +46,22 @@ $(document).ready(function(){
   };
 
 // Check for new tweets on a random schedule
-var checkTweet = function() {
-  for (var i = originNumbOfTweets; i < streams.home.length; i++) {
-    var tweet = streams.home[i];
-    var $tweet = $("<h2 class='tweets'><span class='userName'>@" +
-      tweet.user + "</span>: " + tweet.message + "</h2>");
-    var $timeStamp = $("<h3 class='timeStamp'></h3>");
-    $timeStamp.text(tweet.created_at);
-    $timeStamp.prependTo($allTweets);
-    $tweet.prependTo($allTweets);
-  }
-};
+  var checkTweet = function() {
+    for (var i = originNumbOfTweets; i < streams.home.length; i++) {
+      var tweet = streams.home[i];
+      var $tweet = $("<h2 class='tweets'><span class='userName'>@" +
+        tweet.user + "</span>: " + tweet.message + "</h2>");
+      var $timeStamp = $("<h3 class='timeStamp'></h3>");
+      $timeStamp.text(tweet.created_at);
+      $timeStamp.prependTo($allTweets);
+      $tweet.prependTo($allTweets);
+    }
+  };
 
-var scheduleNextCheck = function() {
-  checkTweet();
-  setTimeout(scheduleNextCheck, Math.random() * 60000);
-};
-scheduleNextCheck();
+  var scheduleNextCheck = function() {
+    checkTweet();
+    setTimeout(scheduleNextCheck, Math.random() * 60000);
+  };
+  scheduleNextCheck();
 
 });
