@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-  var $header = $('h1');
+  var $header = $('.title');
   var $allTweets = $('.allTweets');
   var $selectedUsr = $('.selectedUsr');
+  var $usrTimeline = $('.usrTimeline');
 
 
   var index = streams.home.length - 1;
@@ -20,17 +21,24 @@ $(document).ready(function(){
   var $userName = $('.userName');
   var currUser;
   $userName.click(function(event) {
-    $header.attr('hidden', true);
-    $selectedUsr.attr('hidden', false);
+    $header.hide();
     currUser = event.target.innerText;
     currUser = currUser.slice(1).toString();
-    $selectedUsr.text(currUser);
-    $allTweets.attr('hidden', true);
+    $selectedUsr.text('@' + currUser);
+    $allTweets.hide();
     showUserTimeline();
   });
 
   function showUserTimeline() {
-    
+    streams.users[currUser].reverse();
+    streams.users[currUser].forEach(function(usrData) {
+      var $usrTweets = $("<h2 class='usrTweets'></h2>");
+      var $usrTimestamp = $("<h3 class='usrTimestamp'></h3>")
+      $usrTweets.text('#' + usrData.message);
+      $usrTimestamp.text(usrData.created_at);
+      $usrTimestamp.appendTo($usrTimeline);
+      $usrTweets.appendTo($usrTimeline);
+    });
   }
 
 });
