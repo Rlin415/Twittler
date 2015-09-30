@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(90, 167, 217);
+  background: linear-gradient(to right, rgb(90, 167, 217) , rgba(36, 200, 102, 0.55));
 }
 
 header,
@@ -10,7 +10,35 @@ header,
 }
 
 .title {
-  color: rgb(245, 245, 245);
   font-size: 80px;
   letter-spacing: 5px;
+}
+
+.tweetMsg {
+  font-size: 27.2px;
+}
+
+.tweets,
+.tweetMsg {
+  display: inline;
+}
+
+.userName {
+  cursor: pointer;
+}
+
+.title,
+.selectedUsr {
+  color: rgba(13, 122, 193, 0.8);
+}
+
+.timeStamp,
+.usrTimestamp {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.usrTweets,
+.tweets,
+.tweetMsg {
+  color: rgba(0, 0, 0, 0.65);
 }
