@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
-// Set up jQuery variables
+// Declare jQuery variables
   var $header = $('.title');
   var $allTweets = $('.allTweets');
   var $selectedUsr = $('.selectedUsr');
+  var $usrActivities = $('.usrActivities');
+  var $backBtn = $('.backBtn');
   var $usrTimeline = $('.usrTimeline');
 
 // Show all users and tweets
@@ -34,17 +36,27 @@ $(document).ready(function(){
 
 // Grab user's timeline data from data_generator.js
   var showUserTimeline = function() {
+    $usrTimeline.show();
     streams.users[currUser].reverse();
     streams.users[currUser].forEach(function(usrData) {
       var $usrTweets = $("<h2 class='usrTweets'></h2>");
       var $usrTimestamp = $("<h3 class='usrTimestamp'></h3>")
       $usrTweets.text(usrData.message);
       $usrTimestamp.text(usrData.created_at);
-      $usrTimestamp.appendTo($usrTimeline);
-      $usrTweets.appendTo($usrTimeline);
+      $usrTimestamp.appendTo($usrActivities);
+      $usrTweets.appendTo($usrActivities);
     });
   };
 
+// Hide specified user's timeline and show all users
+  $backBtn.click(function() {
+    $usrTimeline.hide();
+    $usrActivities.empty();
+    $header.show();
+    $allTweets.show();
+  });
+
+/*
 // Check for new tweets on a random schedule
   var checkTweet = function() {
     for (var i = originNumbOfTweets; i < streams.home.length; i++) {
@@ -63,5 +75,5 @@ $(document).ready(function(){
     setTimeout(scheduleNextCheck, Math.random() * 60000);
   };
   scheduleNextCheck();
-
+*/
 });
