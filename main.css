@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(90, 167, 217);
+}
+
+header,
+.allTweets,
+.usrTimeline {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.title {
+  color: rgb(245, 245, 245);
+  font-size: 80px;
+  letter-spacing: 5px;
+}
