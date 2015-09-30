@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, rgb(90, 167, 217) , rgba(36, 200, 102, 0.55));
+  background: linear-gradient(to right, rgb(90, 167, 217), rgba(36, 200, 102, 0.55));
 }
 
 header,
@@ -7,6 +7,14 @@ header,
 .usrTimeline {
   text-align: center;
   margin-top: 50px;
+}
+
+.selectedUsr {
+  margin-bottom: 30px;
+}
+
+.backBtn {
+  margin-bottom: 20px;
 }
 
 .title {
@@ -33,7 +41,7 @@ header,
 }
 
 .timeStamp,
-.usrTimestamp {
+.usrActivities {
   color: rgba(255, 255, 255, 0.75);
 }
 
