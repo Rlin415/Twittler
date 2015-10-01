@@ -25,14 +25,17 @@ $(document).ready(function(){
 // Show clicked user's timeline
   var $userName = $('.userName');
   var currUser;
-  $userName.click(function(event) {
-    $header.hide();
-    currUser = event.target.innerText;
-    currUser = currUser.slice(1).toString();
-    $selectedUsr.text('@' + currUser);
-    $allTweets.hide();
-    showUserTimeline();
-  });
+  var addClickEvent = function() {
+    $userName.click(function(event) {
+      $header.hide();
+      currUser = event.target.innerText;
+      currUser = currUser.slice(1).toString();
+      $selectedUsr.text('@' + currUser);
+      $allTweets.hide();
+      showUserTimeline();
+    });
+  }
+  addClickEvent();
 
 // Grab user's timeline data from data_generator.js
   var showUserTimeline = function() {
@@ -71,6 +74,8 @@ $(document).ready(function(){
 
   var scheduleNextCheck = function() {
     checkTweet();
+    $userName = $('.userName');
+    addClickEvent();
     setTimeout(scheduleNextCheck, Math.random() * 60000);
   };
   scheduleNextCheck();
