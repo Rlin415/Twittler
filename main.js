@@ -61,11 +61,11 @@ $(document).ready(function(){
     for (var i = originNumbOfTweets; i < streams.home.length; i++) {
       var tweet = streams.home[i];
       var $tweet = $("<h2 class='tweets'><span class='userName'>@" +
-        tweet.user + "</span>: " + tweet.message + "</h2>");
+        tweet.user + "</span>: </h2><h3 class='tweetMsg'>" + tweet.message + "</h3>");
       var $timeStamp = $("<h3 class='timeStamp'></h3>");
       $timeStamp.text(tweet.created_at);
-      $timeStamp.prependTo($allTweets);
       $tweet.prependTo($allTweets);
+      $timeStamp.prependTo($allTweets);
     }
   };
 
