@@ -17,6 +17,11 @@ header,
   margin-bottom: 20px;
 }
 
+.github {
+  margin: 40px 0 0 5px;
+  font-size: 18px;
+}
+
 .title {
   font-size: 80px;
   letter-spacing: 5px;
@@ -24,6 +29,10 @@ header,
 
 .tweetMsg {
   font-size: 27.2px;
+}
+
+.github a:link {
+  text-decoration: none;
 }
 
 .tweets,
@@ -49,4 +58,8 @@ header,
 .tweets,
 .tweetMsg {
   color: rgba(0, 0, 0, 0.65);
+}
+
+.github a {
+  color: rgb(12, 144, 65);
 }
