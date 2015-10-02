@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-// Declare jQuery variables
+// Initialize jQuery variables
   var $header = $('.title');
   var $allTweets = $('.allTweets');
   var $selectedUsr = $('.selectedUsr');
